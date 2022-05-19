@@ -1,0 +1,7 @@
+<%= simple_form_for @bookmark do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.association :list %>
+  <%= f.submit "Validate Bookmark", class: "btn btn-success" %><% end %>
+
+  <br>
