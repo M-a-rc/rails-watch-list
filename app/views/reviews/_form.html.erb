@@ -1,0 +1,7 @@
+<%= simple_form_for [@movie, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :stars %>
+  <%= f.submit "Validate Review", class: "btn btn-success" %>
+<% end %>
+
+<br>
