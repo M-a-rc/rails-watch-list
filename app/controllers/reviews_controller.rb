@@ -5,11 +5,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    raise
     @review = Review.new(review_params)
     @review.movie = Movie.find(params[:movie_id])
-    # if @review.save
-    #   redirect_to
+    if @review.save
+      redirect_to lists_path
+    else
+      render :new
+    end
   end
 
   private
