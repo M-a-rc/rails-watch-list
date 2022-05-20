@@ -1,10 +1,9 @@
 <div class="navbar position-fixed w-100 p-4">
-  <%= link_to 'Create New List', new_list_path, class:"btn btn-success" %>
-  <%= link_to 'Create New Bookmark', new_bookmark_path, class:"btn btn-success" %>
+  <%= link_to 'Create New Playlist', new_list_path, class:"btn btn-success" %>
 </div>
 
 <div class="banner mb-5 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.lambesc.fr/fileadmin/user_upload/cinema.jpg); height: 50vh; size:cover; position: center;">
-  <h1 class="text-white display-2">All the lists</h1>
+  <h1 class="text-white display-2">All the Playlists</h1>
 </div>
 
 
@@ -13,15 +12,17 @@
     <% @lists.each do |list| %>
       <div class="col-6 col-md-4 mb-3">
         <%= link_to list_path(list), class:"text-decoration-none" do %>
-          <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header text-center"> <%= list.name %> </div>
+
+          <div class="wagon-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= list.photo.attached? ? "#{cl_image_path list.photo.key}" : 'https://wallpaper.dog/large/5486351.jpg' %>); height: 200px; size:cover; position: center;">
+          <p><%= list.name %></p>
           </div>
+
         <% end %>
       </div>
     <% end %>
   </div>
 </div>
 
-<div class="footer bg-dark p-3 fixed-bottom">
-<p class="text-success text-center font-italic">Made by Michele</p>
+<div class="footer bg-dark p-3 sticky-bottom">
+<p class="text-success text-center font-italic">Made by Michele 🇮🇹</p>
 </div>

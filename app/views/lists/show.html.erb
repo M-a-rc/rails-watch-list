@@ -1,37 +1,42 @@
 <div class="banner mb-5 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.photo.attached? ? "#{cl_image_path @list.photo.key}" : 'https://wallpaper.dog/large/5486351.jpg' %>); height: 50vh; size:cover; position: center;">
   <h1 class="text-white display-2 m-4"><%= @list.name %></h1>
-  <%= link_to 'Back to Lists', lists_path, class:"btn btn-success" %>
+  <%= link_to 'Back to Lists', lists_path, class:"btn btn-success m-2" %>
+  <%= link_to 'Add movie to this playlist', new_list_bookmark_path(@list), class:"btn btn-success m-2" %>
+
 </div>
 
 
+<div class="filling-box">
+  <div class="upper-div">
+    <div class="container">
+      <div class="row">
+        <% @list_movies.each do |movie| %>
 
-<div class="container">
-  <div class="row">
-    <% @list_movies.each do |movie| %>
+          <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center mb-3">
+            <% this_bookmark = @list_bookmarks.find{|bookmark| bookmark.movie_id == movie.id}%>
 
-      <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center mb-3">
-        <% this_bookmark = @list_bookmarks.find{|bookmark| bookmark.movie_id == movie.id}%>
-
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src=<%= movie.poster_url%> alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title"><%= movie.title%></h5>
-            <p class="card-text"><%= movie.overview%></p>
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src=<%= movie.poster_url%> alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%= movie.title%></h5>
+                <p class="card-text"><%= movie.overview%></p>
+              </div>
+              <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= movie.rating%>/10</li>
+                <li class="list-group-item"><%= this_bookmark.comment%></li>
+              </ul>
+              <div class="card-body">
+                <%= link_to "Delete from list", bookmark_path(this_bookmark), method: :delete, class:"btn btn-success" %>
+              </div>
+            </div>
           </div>
-          <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= movie.rating%>/10</li>
-            <li class="list-group-item"><%= this_bookmark.comment%></li>
-          </ul>
-          <div class="card-body">
-            <%= link_to "Delete from list", bookmark_path(this_bookmark), method: :delete, class:"btn btn-success" %>
-          </div>
-        </div>
+
+        <% end %>
       </div>
-
-    <% end %>
+    </div>
   </div>
-</div>
 
-<div class="footer bg-dark sticky-bottom p-3 mt-5">
-<p class="text-success text-center font-italic">Made by Michele</p>
+  <div class="footer bg-dark sticky-bottom p-3 mt-5">
+  <p class="text-success text-center font-italic">Made by Michele 🇮🇹</p>
+  </div>
 </div>

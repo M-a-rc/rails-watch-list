@@ -1,7 +1,7 @@
-<%= simple_form_for @bookmark do |f| %>
+<%= simple_form_for list_bookmarks_path(@list) do |f| %>
   <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.association :list %>
-  <%= f.submit "Validate Bookmark", class: "btn btn-success" %><% end %>
+  <%= f.input :movie, as: :select, collection: @movies, input_html: { class: 'select2' } %>
+  <%= f.submit "Validate Bookmark", class: "btn btn-success" %>
+<% end %>
 
   <br>

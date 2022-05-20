@@ -11,3 +11,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import 'select2/dist/css/select2';
+
+
+.filling-box{
+  min-height: 44vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.upper-div{
+  flex-grow: 1;
+}
