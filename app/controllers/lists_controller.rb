@@ -9,6 +9,8 @@ class ListsController < ApplicationController
     @list_bookmarks = Bookmark.select { |bookmark| bookmark.list_id == @list.id }
     @list_movies = []
     @list_bookmarks.each { |bookmark| @list_movies << Movie.find(bookmark.movie_id) }
+    @comment = Comment.new(list: @list)
+
   end
 
   def new

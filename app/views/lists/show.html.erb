@@ -32,9 +32,34 @@
           </div>
 
         <% end %>
+
+        <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center mb-3">
+
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">List reviews</h5>
+                </div>
+                <ul class="list-group list-group-flush flex-grow-1">
+
+                  <% @list.comments.each do |comment| %>
+                    <li class="list-group-item"> <%= comment.content %> </li>
+                  <% end %>
+
+                </ul>
+                <div class="card-body">
+                  <%= simple_form_for [@list, @comment] do |f| %>
+                    <%= f.input :content, placeholder: "Add your review here..." %>
+                    <%= f.submit "Validate Comment", class: "btn btn-success" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
       </div>
     </div>
   </div>
+
+  .
 
   <div class="footer bg-dark sticky-bottom p-3 mt-5">
   <p class="text-success text-center font-italic">Made by Michele 🇮🇹</p>
