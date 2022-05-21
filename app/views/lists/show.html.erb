@@ -25,20 +25,8 @@
               <li class="list-group-item"><%= movie.rating%>/10</li>
                 <li class="list-group-item"><%= this_bookmark.comment%></li>
               </ul>
-              <div class="card-body text-center">
-                    <%= link_to "Delete from list", bookmark_path(this_bookmark), method: :delete, class:"btn btn-success mb-3 d-inline-block" %>
-                    <%= link_to "Leave Review", new_movie_review_path(movie), class:"btn btn-success d-inline-block" %>
-                    <hr>
-                    <h5>Reviews:</h5>
-                    <ul class="list-group">
-                    <% movie.reviews.each do |review| %>
-                      <li class="list-group-item">
-                        <h6><%= review.stars %>/5</h6>
-                        <%=review.content %>
-                      </li>
-                    <% end %>
-                    </ul>
-                </ul>
+              <div class="card-body">
+                <%= link_to "Delete from list", bookmark_path(this_bookmark), method: :delete, class:"btn btn-success" %>
               </div>
             </div>
           </div>

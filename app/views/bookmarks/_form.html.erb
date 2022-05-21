@@ -1,7 +1,9 @@
 <%= simple_form_for [@list, @bookmark] do |f| %>
   <%= f.input :comment %>
-  <%= f.association :movie %>
+  <%= f.association :movie, prompt: 'Select a movie', input_html: { class: 'select2' } %>
   <%= f.submit "Validate Bookmark", class: "btn btn-success" %>
 <% end %>
 
   <br>
+
+<%# <%= f.input :movie, collection: @movies, input_html: { class: 'select2' } %>

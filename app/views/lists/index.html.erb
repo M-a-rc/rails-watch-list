@@ -6,23 +6,26 @@
   <h1 class="text-white display-2">All the Playlists</h1>
 </div>
 
+<div class="filling-box">
+  <div class="upper-div">
 
-<div class="container">
-  <div class="row">
-    <% @lists.each do |list| %>
-      <div class="col-6 col-md-4 mb-3">
-        <%= link_to list_path(list), class:"text-decoration-none" do %>
+    <div class="container">
+      <div class="row">
+        <% @lists.each do |list| %>
+          <div class="col-6 col-md-4 mb-3">
+            <%= link_to list_path(list), class:"text-decoration-none" do %>
 
-          <div class="wagon-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= list.photo.attached? ? "#{cl_image_path list.photo.key}" : 'https://wallpaper.dog/large/5486351.jpg' %>); height: 200px; size:cover; position: center;">
-          <p><%= list.name %></p>
+              <div class="wagon-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= list.photo.attached? ? "#{cl_image_path list.photo.key}" : 'https://wallpaper.dog/large/5486351.jpg' %>); height: 200px; size:cover; position: center;">
+              <p><%= list.name %></p>
+              </div>
+
+            <% end %>
           </div>
-
         <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
-</div>
-
-<div class="footer bg-dark p-3 sticky-bottom">
-<p class="text-success text-center font-italic">Made by Michele 🇮🇹</p>
+  <div class="footer bg-dark p-3 sticky-bottom">
+  <p class="text-success text-center font-italic">Made by Michele 🇮🇹</p>
+  </div>
 </div>
